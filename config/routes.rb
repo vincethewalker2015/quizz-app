@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users,  controllers: { registrations: "registrations" }
-  root 'home#home'
+  root 'home#index'
   
   resources :quizzes
   get '/quizzes/:id/leaderboard' => "quizzes#leaderboard"

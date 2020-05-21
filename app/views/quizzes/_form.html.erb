@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-3" >
+    <%= form_with(model: quiz, local: true) do |form| %>
+      <% if quiz.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
+
+          <ul>
+          <% quiz.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-froup">
+        <%= form.label :title %>
+        <%= form.text_field :title, id: :quiz_title, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :desc %>
+        <%= form.text_area :desc, id: :quiz_desc, class: 'form-control' %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit class: "btn btn-primary" %>
+        <%= link_to 'Back', quizzes_path, class: "btn btn-danger" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
